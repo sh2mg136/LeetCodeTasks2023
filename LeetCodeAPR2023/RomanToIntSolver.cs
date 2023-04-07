@@ -19,7 +19,7 @@ namespace LeetCodeAPR2023
     /// M             1000
     /// 
     /// </summary>
-    internal class RomanToIntSolver
+    internal class RomanNumeralsSolver
     {
 
         private readonly Dictionary<char, int> dict = new Dictionary<char, int>
@@ -85,6 +85,53 @@ namespace LeetCodeAPR2023
             { "XIX", 19 },
             { "XX", 20 },
          };
+
+
+        /// <summary>
+        /// Given an integer, convert it to a roman numeral.
+        /// </summary>
+        /// <param name="num"></param>
+        /// <returns></returns>
+        public string IntToRoman(int num)
+        {
+            // if (FirstTwenty.ContainsValue(num)) return FirstTwenty.Where(x => x.Value == num).First().Key;
+
+            string res = "";
+            // 21 -> XXI
+            // 22 -> XXII
+            // 1994 -> MCMXCIV
+
+            var D = new Dictionary<int, string>
+            {
+                { 1000, "M" },
+                { 900,  "CM" },
+                { 500,  "D" },
+                { 400,  "CD" },
+                { 100,  "C" },
+                { 90,   "XC" },
+                { 50,   "L" },
+                { 40,   "XL" },
+                { 10,   "X" },
+                { 9,    "IX" },
+                { 5,    "V" },
+                { 4,    "IV" },
+                { 1,    "I" },
+            };
+
+            int cnt = 0;
+
+            foreach ( var x in D )
+            {
+                cnt = num / x.Key;
+                if (cnt > 0)
+                {
+                    for (int i = 0; i < cnt; i++) res += x.Value;
+                    num -= cnt * x.Key;
+                }
+            }
+
+            return res;
+        }
 
     }
 }
