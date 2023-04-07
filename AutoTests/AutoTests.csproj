@@ -21,4 +21,8 @@
     </PackageReference>
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\LeetCodeAPR2023\LeetCodeAPR2023.csproj" />
+  </ItemGroup>
+
 </Project>

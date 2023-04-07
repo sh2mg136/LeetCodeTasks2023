@@ -131,3 +131,25 @@ foreach (var val in rs.FirstTwenty)
 s = rs.IntToRoman(1994);
 Debug.Assert(s == "MCMXCIV");
 
+
+
+///////////////////////////////////////////
+LongestSubstringWithoutRepeatingCharactersClass c = new LongestSubstringWithoutRepeatingCharactersClass();
+
+var ires = c.LengthOfLongestSubstring("abcabcbb");
+Debug.Assert(3 == ires);
+
+ires = c.LengthOfLongestSubstring("bbbb");
+Debug.Assert(1 == ires);
+
+ires = c.LengthOfLongestSubstring("pwwkew");
+Debug.Assert(3 == ires);
+
+ires = c.LengthOfLongestSubstring(" ");
+Debug.Assert(1 == ires);
+
+ires = c.LengthOfLongestSubstring("pwwke w");
+Debug.Assert(4 == ires);
+
+ires = c.LengthOfLongestSubstring("dvdf");
+Debug.Assert(3 == ires);
