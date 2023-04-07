@@ -85,7 +85,7 @@ Debug.Assert(cres.next?.next?.next?.next?.next?.next?.next?.next == null);
 /// 
 /// https://leetcode.com/problems/roman-to-integer/
 /// 
-var rs = new RomanToIntSolver();
+var rs = new RomanNumeralsSolver();
 
 var rres = rs.RomanToInt("III");
 Debug.Assert(rres == 3);
@@ -113,4 +113,21 @@ Debug.Assert(rres == 58);
 
 rres = rs.RomanToInt("MCMXCIV");
 Debug.Assert(rres == 1994);
+
+///////////////////////////////////////////
+/// int to Roman
+/// 
+
+var s = rs.IntToRoman(1994);
+Debug.Assert(s == "MCMXCIV");
+
+foreach (var val in rs.FirstTwenty)
+{
+    s = rs.IntToRoman(val.Value);
+    Debug.WriteLine($"{val.Value} -> {s}");
+    Debug.Assert(s == val.Key);
+}
+
+s = rs.IntToRoman(1994);
+Debug.Assert(s == "MCMXCIV");
 
