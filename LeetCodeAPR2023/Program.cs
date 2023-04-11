@@ -153,3 +153,23 @@ Debug.Assert(4 == ires);
 
 ires = c.LengthOfLongestSubstring("dvdf");
 Debug.Assert(3 == ires);
+
+
+
+//////////////////////////////////////////
+/// https://leetcode.com/problems/median-of-two-sorted-arrays/
+MedianTwoSortedArraysClass mcl = new MedianTwoSortedArraysClass();
+var arr1 = new int[] { 1, 3 };
+var arr2 = new int[] { 2 };
+var dbl_res = mcl.FindMedianSortedArrays(arr1, arr2);
+Debug.Assert(dbl_res == 2.000);
+
+arr1 = new int[] { 1, 2 };
+arr2 = new int[] { 3, 4 };
+dbl_res = mcl.FindMedianSortedArrays(arr1, arr2);
+Debug.Assert(dbl_res == 2.500);
+
+arr1 = new int[] { 1, 1 };
+arr2 = new int[] { 1, 2 };
+dbl_res = mcl.FindMedianSortedArrays(arr1, arr2);
+Debug.Assert(dbl_res == 1.000);
