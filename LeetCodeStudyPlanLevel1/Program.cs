@@ -144,3 +144,20 @@ Debug.Assert(res_list != null && res_list.val == 4);
 Debug.Assert(res_list.next != null && res_list.next.val == 5);
 Debug.Assert(res_list.next.next != null && res_list.next.next.val == 6);
 Debug.Assert(res_list.next.next.next == null);
+
+
+/////////////////////////////////////////////////////////////
+// 142. Linked List Cycle II
+
+var f4 = new ListNode(-4);
+var f3 = new ListNode(0, f4);
+var f2 = new ListNode(2, f3);
+var f1 = new ListNode(3, f2);
+
+f4.next = f2;
+
+res_list = sol2.DetectCycle2(f1);
+Debug.Assert(res_list != null && res_list.val == 2);
+Debug.Assert(res_list.next != null && res_list.next.val == 0);
+Debug.Assert(res_list.next.next != null && res_list.next.next.val == -4);
+//tail connects to node index 1
