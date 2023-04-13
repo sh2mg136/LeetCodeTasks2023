@@ -71,3 +71,47 @@ Debug.Assert(!bres);
 bres = sol.IsSubsequence("axc", "ahbgdc");
 Debug.Assert(!bres);
 
+
+
+/////////////////////////////////////////////////////////////
+//  21. Merge Two Sorted Lists
+Solution2 sol2 = new Solution2();
+
+var a3 = new ListNode(4);
+var a2 = new ListNode(2, a3);
+var a1 = new ListNode(1, a2);
+
+var b3 = new ListNode(4);
+var b2 = new ListNode(3, b3);
+var b1 = new ListNode(1, b2);
+
+var res_list = sol2.MergeTwoLists(a1, b1);
+Debug.Assert(res_list != null);
+Debug.Assert(res_list.val == 1);
+Debug.Assert(res_list.next.val == 1);
+Debug.Assert(res_list.next.next.val == 2);
+Debug.Assert(res_list.next.next.next.val == 3);
+Debug.Assert(res_list.next.next.next.next.val == 4);
+Debug.Assert(res_list.next.next.next.next.next.val == 4);
+Debug.Assert(res_list.next.next.next.next.next.next == null);
+
+
+
+/////////////////////////////////////////////////////////////
+// 206. Reverse Linked List
+
+var c5 = new ListNode(5);
+var c4 = new ListNode(4, c5);
+var c3 = new ListNode(3, c4);
+var c2 = new ListNode(2, c3);
+var c1 = new ListNode(1, c2);
+
+res_list = sol2.ReverseList(c1);
+
+Debug.Assert(res_list != null && res_list.val == 5);
+Debug.Assert(res_list.next != null && res_list.next.val == 4);
+Debug.Assert(res_list.next.next != null && res_list.next.next.val == 3);
+Debug.Assert(res_list.next.next.next != null && res_list.next.next.next.val == 2);
+Debug.Assert(res_list.next.next.next.next != null && res_list.next.next.next.next.val == 1);
+Debug.Assert(res_list.next.next.next.next.next == null);
+
