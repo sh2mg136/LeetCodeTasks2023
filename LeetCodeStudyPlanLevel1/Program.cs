@@ -1,5 +1,6 @@
 ﻿// See https://aka.ms/new-console-template for more information
 using LeetCodeStudyPlanLevel1;
+using System;
 using System.Diagnostics;
 
 Console.WriteLine("LeetCode Study Plan - 1");
@@ -161,3 +162,32 @@ Debug.Assert(res_list != null && res_list.val == 2);
 Debug.Assert(res_list.next != null && res_list.next.val == 0);
 Debug.Assert(res_list.next.next != null && res_list.next.next.val == -4);
 //tail connects to node index 1
+
+
+CMisc cm = new CMisc();
+var ir = cm.Reverse(123);
+Debug.Assert(ir == 321);
+
+ir = cm.Reverse(-321);
+Debug.Assert(ir == -123);
+
+int im = int.MaxValue; // 2 147 483 647 -> 7 463 847 412
+var t = Math.Pow(2, 31) - 1;
+ir = cm.Reverse(im);
+Debug.Assert(ir == 0);
+
+ir = cm.Reverse(int.MinValue + 1);
+Debug.Assert(ir == 0);
+
+ir = cm.Reverse(int.MinValue);
+Debug.Assert(ir == 0);
+
+var charr = new char[] { 'A', 'b', 'c' };
+charr = charr.Reverse().ToArray();
+Debug.Assert(charr != null && charr[0] == 'c' && charr.Last() == 'A');
+
+cm.ReverseString(new char[] { 'a' });
+
+cm.ReverseString(new char[] { 'a', 'b' });
+
+cm.ReverseString(new char[] { 'a', 'b', 'c' });
