@@ -1,4 +1,6 @@
-﻿namespace LeetCodeStudyPlanLevel1
+﻿using System.Diagnostics;
+
+namespace LeetCodeStudyPlanLevel1
 {
     public class ListNode
     {
@@ -114,7 +116,6 @@
             return pnt;
         }
 
-
         private ListNode MergeTwoListsV3(ListNode list1, ListNode list2)
         {
             if (list1 == null && list2 == null) return new ListNode(0);
@@ -163,8 +164,6 @@
             return pnt;
         }
 
-
-
         /// <summary>
         /// 206. Reverse Linked List
         /// https://leetcode.com/problems/reverse-linked-list/?envType=study-plan&id=level-1
@@ -180,7 +179,7 @@
 
             while (ptr != null)
             {
-                next_node = ptr.next; 
+                next_node = ptr.next;
                 ptr.next = node;
                 node = ptr;
                 ptr = next_node;
@@ -189,5 +188,45 @@
             return node;
         }
 
+        /// <summary>
+        /// 876. Middle of the Linked List
+        /// https://leetcode.com/problems/middle-of-the-linked-list/?envType=study-plan&id=level-1
+        /// </summary>
+        /// <param name="head"></param>
+        /// <returns></returns>
+        public ListNode? MiddleNode(ListNode head)
+        {
+            if (head == null)
+                return null;
+
+            ListNode? ptr = head;
+            ListNode? next_node = null;
+
+            int cnt = 0;
+            while (ptr != null)
+            {
+                cnt++;
+                next_node = ptr.next;
+                ptr = next_node;
+            }
+            Debug.Assert(cnt > 0);
+
+            if (cnt == 1) return head;
+
+            var mid = cnt / 2; 
+            cnt = 0;
+            ptr = head;
+            next_node = null;
+
+            while (ptr != null)
+            {
+                cnt++;
+                next_node = ptr.next;
+                ptr = next_node;
+                if (cnt == mid) break;
+            }
+
+            return next_node;
+        }
     }
 }

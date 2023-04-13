@@ -115,3 +115,32 @@ Debug.Assert(res_list.next.next.next != null && res_list.next.next.next.val == 2
 Debug.Assert(res_list.next.next.next.next != null && res_list.next.next.next.next.val == 1);
 Debug.Assert(res_list.next.next.next.next.next == null);
 
+
+/////////////////////////////////////////////////////////////
+// 876. Middle of the Linked List
+var e1 = new ListNode(1);
+res_list = sol2.MiddleNode(e1);
+Debug.Assert(res_list != null && res_list.val == 1);
+
+var d5 = new ListNode(5);
+var d4 = new ListNode(4, d5);
+var d3 = new ListNode(3, d4);
+var d2 = new ListNode(2, d3);
+var d1 = new ListNode(1, d2);
+
+res_list = sol2.MiddleNode(d1);
+
+Debug.Assert(res_list != null && res_list.val == 3);
+Debug.Assert(res_list.next != null && res_list.next.val == 4);
+Debug.Assert(res_list.next.next != null && res_list.next.next.val == 5);
+Debug.Assert(res_list.next.next.next == null);
+
+var d6 = new ListNode(6);
+d5.next = d6;
+
+res_list = sol2.MiddleNode(d1);
+
+Debug.Assert(res_list != null && res_list.val == 4);
+Debug.Assert(res_list.next != null && res_list.next.val == 5);
+Debug.Assert(res_list.next.next != null && res_list.next.next.val == 6);
+Debug.Assert(res_list.next.next.next == null);
