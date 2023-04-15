@@ -164,6 +164,8 @@ Debug.Assert(res_list.next.next != null && res_list.next.next.val == -4);
 //tail connects to node index 1
 
 
+/////////////////////////////////////////////////////////////
+///
 CMisc cm = new CMisc();
 var ir = cm.Reverse(123);
 Debug.Assert(ir == 321);
@@ -191,3 +193,40 @@ cm.ReverseString(new char[] { 'a' });
 cm.ReverseString(new char[] { 'a', 'b' });
 
 cm.ReverseString(new char[] { 'a', 'b', 'c' });
+
+
+
+/////////////////////////////////////////////////////////////
+// 121. Best Time to Buy and Sell Stock
+BuySellStockClass bsc = new BuySellStockClass();
+var profit = bsc.MaxProfit(new int[] { 7, 1, 5, 3, 6, 4 });
+Debug.Assert(profit == 5);
+
+profit = bsc.MaxProfit(new int[] { 7, 6, 4, 3, 1 });
+Debug.Assert(profit == 0);
+
+profit = bsc.MaxProfit(new int[] { 1, 2 });
+Debug.Assert(profit == 1);
+
+
+/////////////////////////////////////////////////////////////
+// 409. Longest Palindrome
+profit = bsc.LongestPalindrome("a");
+Debug.Assert(profit == 1);
+
+profit = bsc.LongestPalindrome("bb");
+Debug.Assert(profit == 2);
+
+profit = bsc.LongestPalindrome("ccc");
+Debug.Assert(profit == 3);
+
+profit = bsc.LongestPalindrome("abccccdd");
+Debug.Assert(profit == 7);
+
+profit = bsc.LongestPalindrome("aaabbbbbccccdd");
+Debug.Assert(profit == 13, "Wrong answer");
+
+var str = @"civilwartestingwhetherthatnaptionoranynartionsoconceivedandsodedicatedcanlongendureWeareqmetonagreatbattlefiemldoftzhatwarWehavecometodedicpateaportionofthatfieldasafinalrestingplaceforthosewhoheregavetheirlivesthatthatnationmightliveItisaltogetherfangandproperthatweshoulddothisButinalargersensewecannotdedicatewecannotconsecratewecannothallowthisgroundThebravelmenlivinganddeadwhostruggledherehaveconsecrateditfaraboveourpoorponwertoaddordetractTgheworldadswfilllittlenotlenorlongrememberwhatwesayherebutitcanneverforgetwhattheydidhereItisforusthelivingrathertobededicatedheretotheulnfinishedworkwhichtheywhofoughtherehavethusfarsonoblyadvancedItisratherforustobeherededicatedtothegreattdafskremainingbeforeusthatfromthesehonoreddeadwetakeincreaseddevotiontothatcauseforwhichtheygavethelastpfullmeasureofdevotionthatweherehighlyresolvethatthesedeadshallnothavediedinvainthatthisnationunsderGodshallhaveanewbirthoffreedomandthatgovernmentofthepeoplebythepeopleforthepeopleshallnotperishfromtheearth";
+
+profit = bsc.LongestPalindrome(str);
+Debug.Assert(profit == 983, "Wrong answer");

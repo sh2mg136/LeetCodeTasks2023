@@ -33,7 +33,8 @@ namespace LeetCodeStudyPlanLevel1
                 i++;
             }
             Console.WriteLine(s);
-            Debug.Assert(s[0] == 'c' && s[s.Length - 1] == 'a');
+
+            // Debug.Assert(s[0] == 'c' && s[s.Length - 1] == 'a');
         }
 
         public void ReverseString2(char[] s)
