@@ -345,3 +345,16 @@ for (int i = 0; i < correct_output.Count; i++)
     Debug.Assert(Enumerable.SequenceEqual(lores[i], correct_output[i]), "Wrong answer");
 }
 Debug.WriteLine("Done!");
+
+
+
+/////////////////////////////////////////////////////////////
+/// 704. Binary Search
+CBinarySearch cbc = new CBinarySearch();
+
+ires = cbc.Search(new int[] { -1, 0, 3, 5, 9, 12 }, 9);
+Debug.Assert(ires == 4);
+
+ires = cbc.Search(new int[] { -1, 0, 3, 5, 9, 12 }, 2);
+Debug.Assert(ires == -1);
+
