@@ -230,3 +230,118 @@ var str = @"civilwartestingwhetherthatnaptionoranynartionsoconceivedandsodedicat
 
 profit = bsc.LongestPalindrome(str);
 Debug.Assert(profit == 983, "Wrong answer");
+
+
+/////////////////////////////////////////////////////////////
+/// 589. N-ary Tree Preorder Traversal
+TreeClass treeC = new TreeClass();
+
+Node node = new(1);
+
+node.children = new List<Node>() {
+    new Node(3, new List<Node>()
+    {
+        new Node(5),
+        new Node(6),
+    }),
+    new Node(2),
+    new Node(4),
+};
+
+var listResult = treeC.Preorder(node);
+var correct_list = new List<int>() { 1, 3, 5, 6, 2, 4 };
+Debug.Assert(Enumerable.SequenceEqual(listResult, correct_list), "Wrong answer");
+Debug.WriteLine("Done!");
+
+node = new Node(1, new List<Node>()
+{
+    new Node(2),
+    new Node(3, new List<Node>()
+    {
+        new Node(6),
+        new Node(7, new List<Node>()
+        {
+            new Node(11, new List<Node>()
+            {
+                new Node(14)
+            })
+        }),
+    }),
+    new Node(4, new List<Node>()
+    {
+        new Node(8, new List<Node>()
+        {
+            new Node(12)
+        })
+    }),
+    new Node(5, new List<Node>()
+    {
+        new Node(9, new List<Node>()
+        {
+            new Node(13)
+        }),
+        new Node(10)
+    }),
+});
+
+listResult = treeC.Preorder(node);
+correct_list = new List<int>() { 1, 2, 3, 6, 7, 11, 14, 4, 8, 12, 5, 9, 13, 10 };
+Debug.Assert(Enumerable.SequenceEqual(listResult, correct_list), "Wrong answer");
+Debug.WriteLine("Done!");
+
+
+
+/////////////////////////////////////////////////////////////
+/// 102. Binary Tree Level Order Traversal
+treeC = new TreeClass();
+
+TreeNode tn = new TreeNode(3,
+    new TreeNode(9),
+    new TreeNode(20, new TreeNode(15), new TreeNode(7)));
+
+var correct_output = new List<List<int>>()
+{
+    new List<int> { 3 },
+    new List<int> { 9, 20 },
+    new List<int> { 15, 7 },
+};
+
+var tnres = treeC.LevelOrder(tn);
+Debug.Assert(tnres.Count == correct_output.Count);
+for (int i = 0; i < correct_output.Count; i++)
+{
+    Debug.Assert(Enumerable.SequenceEqual(tnres[i], correct_output[i]), "Wrong answer");
+}
+Debug.WriteLine("Done!");
+
+
+/////////////////////////////////////////////////////////////
+// 429. N-ary Tree Level Order Traversal
+
+node = new(1);
+
+node.children = new List<Node>() {
+    new Node(3, new List<Node>()
+    {
+        new Node(5),
+        new Node(6),
+    }),
+    new Node(2),
+    new Node(4),
+};
+
+correct_output = new List<List<int>>()
+{
+    new List<int> { 1 },
+    new List<int> { 3, 2, 4 },
+    new List<int> { 5, 6 },
+};
+
+var lores = treeC.LevelOrder(node);
+
+Debug.Assert(lores.Count == correct_output.Count);
+for (int i = 0; i < correct_output.Count; i++)
+{
+    Debug.Assert(Enumerable.SequenceEqual(lores[i], correct_output[i]), "Wrong answer");
+}
+Debug.WriteLine("Done!");
