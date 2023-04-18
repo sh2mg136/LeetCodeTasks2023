@@ -402,3 +402,65 @@ vc.Dict = new Dictionary<int, bool>()
 };
 ires = vc.FirstBadVersion3(15);
 Debug.Assert(ires == 11);
+
+
+
+/////////////////////////////////////////////////////////////
+/// 98. Validate Binary Search Tree
+ValidBST bst = new ValidBST();
+
+TreeNode root = new(2, new TreeNode(1), new TreeNode(3));
+var b = bst.IsValidBST(root);
+Debug.Assert(b);
+
+root = new(5,
+    new TreeNode(1),
+    new TreeNode(4,
+        new TreeNode(3),
+        new TreeNode(6)));
+
+b = bst.IsValidBST(root);
+Debug.Assert(!b);
+
+root = new(10,
+    new TreeNode(5,
+        new TreeNode(3,
+            new TreeNode(2),
+            new TreeNode(4)),
+        new TreeNode(7)),
+    new TreeNode(9,
+        new TreeNode(11),
+        new TreeNode(30)));
+
+b = bst.IsValidBST(root);
+Debug.Assert(!b);
+
+// [5,4,6,null,null,3,7]
+root = new(5,
+    new TreeNode(1),
+    new TreeNode(4, new TreeNode(3), new TreeNode(6)));
+
+b = bst.IsValidBST(root);
+Debug.Assert(!b);
+
+
+// [120,70,140,50,100,130,160,20,55,75,110,119,135,150,200]
+root = new(120,
+    new TreeNode(70,
+        new TreeNode(50,
+            new TreeNode(20),
+            new TreeNode(55)),
+        new TreeNode(100,
+            new TreeNode(75),
+            new TreeNode(110))),
+    new TreeNode(140,
+        new TreeNode(130,
+            new TreeNode(119),      // <-- if 121 is here, then BST is valid
+            new TreeNode(135)),
+        new TreeNode(160,
+            new TreeNode(150),
+            new TreeNode(200))));
+
+b = bst.IsValidBST(root);
+Debug.Assert(!b);
+

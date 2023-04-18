@@ -1,4 +1,5 @@
-﻿using System.Runtime.Intrinsics.X86;
+﻿using System.Diagnostics;
+using System.Runtime.Intrinsics.X86;
 
 namespace LeetCodeStudyPlanLevel1
 {
@@ -25,13 +26,16 @@ namespace LeetCodeStudyPlanLevel1
     /// <summary>
     /// Definition for a binary tree node.
     /// </summary>
+    [DebuggerDisplay("{val}  ({left?.val ?? 0} - {right?.val ?? 0})")]
     public class TreeNode
     {
         public int val;
-        public TreeNode left;
-        public TreeNode right;
+        [DebuggerDisplay("{left.val}")]
+        public TreeNode? left;
+        [DebuggerDisplay("{right.val}")]
+        public TreeNode? right;
 
-        public TreeNode(int val = 0, TreeNode left = null, TreeNode right = null)
+        public TreeNode(int val = 0, TreeNode? left = null, TreeNode? right = null)
         {
             this.val = val;
             this.left = left;
