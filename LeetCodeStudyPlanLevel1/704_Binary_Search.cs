@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -63,5 +64,120 @@ namespace LeetCodeStudyPlanLevel1
             return cnt;
         }
 
+    }
+
+    class VerControl
+    {
+        public Dictionary<int, bool> Dict = new Dictionary<int, bool>() { { 1, true } };
+
+        Random Rnd = new Random();
+
+        public VerControl()
+        {
+        }
+
+
+        public void GenerateData()
+        {
+            Dict = new Dictionary<int, bool>();
+
+            for (int i = 1; i < Rnd.Next(2, 100); i++)
+            {
+                Dict.Add(i, false);
+            }
+
+            for (int i = Dict.Count + 1; i < Dict.Count + Rnd.Next(1, 10); i++)
+            {
+                Dict.Add(i, true);
+            }
+        }
+
+
+        public bool IsBadVersion(int n)
+        {
+            if (!Dict.ContainsKey(n))
+                return false;
+            return Dict[n];
+        }
+    }
+
+    class VC : VerControl
+    {
+
+        public int FirstBadVersion(int n)
+        {
+            while (n > 0)
+            {
+                if (!IsBadVersion(n))
+                    return n + 1;
+                n--;
+            }
+            return n + 1;
+        }
+
+        public int FirstBadVersion3(int n)
+        {
+            int l = 0;
+            int r = n;
+
+            while (true)
+            {
+                int m = l + (r - l) / 2;
+                if (!IsBadVersion(m))
+                {
+                    l = m + 1;
+                }
+                else if (IsBadVersion(m - 1))
+                {
+                    r = m - 1;
+                }
+                else
+                {
+                    return m;
+                }
+            }
+        }
+
+        public int FirstBadVersion4(int n)
+        {
+            int cnt = 1;
+
+            if (IsBadVersion(cnt)) return cnt;
+
+            while (n > 0)
+            {
+                if (IsBadVersion(++cnt))
+                {
+                    return cnt;
+                }
+                else if (!IsBadVersion(n))
+                {
+                    return n + 1;
+                }
+
+                n--;
+            }
+
+            return cnt;
+        }
+
+        public int FirstBadVersion2(int n)
+        {
+            int j = n;
+            if (n == 1)
+            {
+                return IsBadVersion(n) ? 1 : 0;
+            }
+            else
+            {
+                while (j > 0)
+                {
+                    if (!IsBadVersion(j))
+                        return j + 1;
+                    j--;
+                }
+            }
+            return 0;
+        }
     }
 }

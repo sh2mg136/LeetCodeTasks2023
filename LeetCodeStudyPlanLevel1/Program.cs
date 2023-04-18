@@ -358,3 +358,47 @@ Debug.Assert(ires == 4);
 ires = cbc.Search(new int[] { -1, 0, 3, 5, 9, 12 }, 2);
 Debug.Assert(ires == -1);
 
+
+/////////////////////////////////////////////////////////////
+/// 278. First Bad Version
+VC vc = new VC();
+vc.Dict = new Dictionary<int, bool>() { { 1, true } };
+ires = vc.FirstBadVersion3(1);
+Debug.Assert(ires == 1);
+
+vc.Dict = new Dictionary<int, bool>() { { 1, false }, { 2, true } };
+ires = vc.FirstBadVersion3(2);
+Debug.Assert(ires == 2);
+
+vc.Dict = new Dictionary<int, bool>()
+{
+    { 1, false },
+    { 2, false },
+    { 3, false },
+    { 4, true },
+    { 5, true }
+};
+ires = vc.FirstBadVersion3(5);
+Debug.Assert(ires == 4);
+
+
+vc.Dict = new Dictionary<int, bool>()
+{
+    { 1, false },
+    { 2, false },
+    { 3, false },
+    { 4, false },
+    { 5, false },
+    { 6, false },
+    { 7, false },
+    { 8, false },
+    { 9, false },
+    { 10, false },
+    { 11, true },
+    { 12, true },
+    { 13, true },
+    { 14, true },
+    { 15, true }
+};
+ires = vc.FirstBadVersion3(15);
+Debug.Assert(ires == 11);
