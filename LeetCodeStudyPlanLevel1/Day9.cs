@@ -1,12 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics.Metrics;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-using static System.Net.Mime.MediaTypeNames;
+﻿using System.Drawing;
 
 namespace LeetCodeStudyPlanLevel1
 {
@@ -15,18 +7,18 @@ namespace LeetCodeStudyPlanLevel1
         /// <summary>
         /// 733. Flood Fill
         /// https://leetcode.com/problems/flood-fill/?envType=study-plan&id=level-1
-        /// 
+        ///
         /// An image is represented by an m x n integer grid image where image[i][j] represents the pixel value of the image.
-        /// 
+        ///
         /// You are also given three integers sr, sc, and color.
         /// You should perform a flood fill on the image starting from the pixel image[sr][sc].
-        /// 
-        /// To perform a flood fill, consider the starting pixel, 
-        /// plus any pixels connected 4-directionally to the starting pixel of the same color as the starting pixel, 
-        /// plus any pixels connected 4-directionally to those pixels (also with the same color), 
-        /// and so on. 
+        ///
+        /// To perform a flood fill, consider the starting pixel,
+        /// plus any pixels connected 4-directionally to the starting pixel of the same color as the starting pixel,
+        /// plus any pixels connected 4-directionally to those pixels (also with the same color),
+        /// and so on.
         /// Replace the color of all of the aforementioned pixels with color.
-        /// 
+        ///
         /// Return the modified image after performing the flood fill.
         /// </summary>
         /// <param name="image"></param>
@@ -86,7 +78,7 @@ namespace LeetCodeStudyPlanLevel1
             return res;
         }
 
-        int[][] FloodFill_2(int[][] image, int sr, int sc, int color)
+        private int[][] FloodFill_2(int[][] image, int sr, int sc, int color)
         {
             if (image[sr][sc] == color) return image;
             var defaultColor = image[sr][sc];
@@ -96,9 +88,9 @@ namespace LeetCodeStudyPlanLevel1
             return image;
         }
 
-        void check(int[][] image, int x, int y, int color, int defaultColor)
+        private void check(int[][] image, int x, int y, int color, int defaultColor)
         {
-            if (x < 0 || x > image.Length - 1 || y < 0 || y > image[x].Length - 1)
+            if (x < 0 || x >= image.Length || y < 0 || y >= image[x].Length)
                 return;
 
             if (image[x][y] != defaultColor)
@@ -110,6 +102,76 @@ namespace LeetCodeStudyPlanLevel1
             check(image, x + 1, y, color, defaultColor);
             check(image, x, y - 1, color, defaultColor);
             check(image, x, y + 1, color, defaultColor);
+        }
+
+        /// <summary>
+        /// 200. Number of Islands
+        /// https://leetcode.com/problems/number-of-islands/?envType=study-plan&id=level-1
+        /// </summary>
+        /// <param name="grid"></param>
+        /// <returns></returns>
+        public int NumIslands(char[][] grid)
+        {
+            return NumIslands_1(grid);
+        }
+
+        private int NumIslands_1(char[][] grid)
+        {
+            int count = 0;
+            for (int i = 0; i < grid.Length; i++)
+            {
+                for (int j = 0; j < grid[i].Length; j++)
+                {
+                    if (grid[i][j] == '1')
+                    {
+                        count++;
+                        
+                        // update visited cells ver. 1
+                        updateCell(grid, i, j);
+
+                        // update visited cells ver. 2 (using Parallel.ForEach)
+                        // DFS(grid, i, j);
+                    }
+                }
+            }
+            return count;
+        }
+
+        private void updateCell(char[][] grid, int x, int y)
+        {
+            if (x < 0 || x >= grid.Length || y < 0 || y >= grid[x].Length)
+                return;
+
+            if (grid[x][y] == '0')
+                return;
+
+            grid[x][y] = '0';
+
+            updateCell(grid, x - 1, y);
+            updateCell(grid, x + 1, y);
+            updateCell(grid, x, y - 1);
+            updateCell(grid, x, y + 1);
+        }
+
+        private static List<Tuple<int, int>> directions = new List<Tuple<int, int>>()
+        {
+            new Tuple<int, int> (0, 1),
+            new Tuple<int, int> (0, -1),
+            new Tuple<int, int> (1, 0),
+            new Tuple<int, int> (-1, 0),
+        };
+
+        private void DFS(char[][] grid, int x, int y)
+        {
+            if (x < 0 || x >= grid.Length || y < 0 || y >= grid[x].Length)
+                return;
+
+            if (grid[x][y] == '0')
+                return;
+
+            grid[x][y] = '0';
+
+            Parallel.ForEach(directions, d => DFS(grid, x + d.Item1, y + d.Item2));
         }
     }
 }

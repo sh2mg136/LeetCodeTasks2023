@@ -540,3 +540,34 @@ sw.Start();
 ans = day9.FloodFill(image, 1, 0, 2);
 sw.Stop();
 Debug.WriteLine(sw.ElapsedMilliseconds);
+
+
+
+
+/////////////////////////////////////////////////////////////
+/// 200. Number of Islands
+/// 
+var inputGrid = new char[][]
+{
+    new char[] { '1', '1', '1', '1', '0' },
+    new char[] { '1', '1', '0', '1', '0' },
+    new char[] { '1', '1', '0', '0', '0' },
+    new char[] { '0', '0', '0', '0', '0' },
+};
+
+ires = day9.NumIslands(inputGrid);
+Debug.Assert(ires == 1);
+
+
+inputGrid = new char[][]
+{
+    new char[] { '1', '1', '0', '0', '0' },
+    new char[] { '1', '1', '0', '0', '0' },
+    new char[] { '0', '0', '1', '0', '0' },
+    new char[] { '0', '0', '0', '1', '1' },
+};
+
+ires = day9.NumIslands(inputGrid);
+Debug.Assert(ires == 3);
+
+
