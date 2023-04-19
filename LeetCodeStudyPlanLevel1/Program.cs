@@ -464,3 +464,79 @@ root = new(120,
 b = bst.IsValidBST(root);
 Debug.Assert(!b);
 
+
+
+/////////////////////////////////////////////////////////////
+/// 235. Lowest Common Ancestor of a Binary Search Tree
+
+root = new TreeNode(2, new TreeNode(1), null);
+
+var p = new TreeNode(2);
+var q = new TreeNode(1);
+
+var LCA = bst.LowestCommonAncestor(root, p, q);
+Debug.Assert(LCA != null && LCA.val == 2);
+
+root = new(6,
+    new TreeNode(2,
+        new TreeNode(0),
+        new TreeNode(4,
+            new TreeNode(3),
+            new TreeNode(5))),
+    new TreeNode(8,
+        new TreeNode(7),
+        new TreeNode(8)));
+
+p = new TreeNode(2);
+q = new TreeNode(8);
+
+LCA = bst.LowestCommonAncestor(root, p, q);
+Debug.Assert(LCA != null && LCA.val == 6);
+
+q = new TreeNode(4);
+LCA = bst.LowestCommonAncestor(root, p, q);
+Debug.Assert(LCA != null && LCA.val == 2);
+
+p = new TreeNode(7);
+q = new TreeNode(9);
+LCA = bst.LowestCommonAncestor(root, p, q);
+Debug.Assert(LCA != null && LCA.val == 8);
+
+p = new TreeNode(3);
+q = new TreeNode(5);
+LCA = bst.LowestCommonAncestor(root, p, q);
+Debug.Assert(LCA != null && LCA.val == 4);
+
+
+
+/////////////////////////////////////////////////////////////
+/// 733. Flood Fill
+Day9 day9 = new Day9();
+int[][] image = new int[][]
+{
+    new int[] { 1, 1, 1 },
+    new int[] { 1, 1, 0 },
+    new int[] { 1, 0, 1 }
+};
+
+Stopwatch sw = new Stopwatch();
+sw.Start();
+var ans = day9.FloodFill(image, 1, 1, 2);
+sw.Stop();
+Debug.WriteLine(sw.ElapsedMilliseconds);
+Debug.Assert(ans != null && ans.Length == 3);
+Debug.Assert(ans[0][0] == 2 && ans[0][1] == 2 && ans[0][2] == 2);
+Debug.Assert(ans[1][0] == 2 && ans[1][1] == 2 && ans[1][2] == 0);
+Debug.Assert(ans[2][0] == 2 && ans[2][1] == 0 && ans[2][2] == 1);
+
+
+image = new int[][]
+{
+    new int[] { 0, 0, 0 },
+    new int[] { 0, 0, 0 }
+};
+
+sw.Start();
+ans = day9.FloodFill(image, 1, 0, 2);
+sw.Stop();
+Debug.WriteLine(sw.ElapsedMilliseconds);
