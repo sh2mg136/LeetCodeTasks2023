@@ -203,5 +203,60 @@ namespace LeetCodeStudyPlanLevel1
             return (int)Math.Round((Math.Pow(((Math.Sqrt(5) + 1) / 2), N)) / Math.Sqrt(5));
         }
 
+        /// <summary>
+        /// 70. Climbing Stairs
+        /// https://leetcode.com/problems/climbing-stairs/?envType=study-plan&id=level-1
+        /// You are climbing a staircase. It takes n steps to reach the top.
+        /// Each time you can either climb 1 or 2 steps.
+        /// In how many distinct ways can you climb to the top?
+        /// </summary>
+        /// <param name="n"></param>
+        /// <returns></returns>
+        public int ClimbStairs(int n)
+        {
+            // return Fibonacci_Ver1(n + 1);
+
+            if (n == 1) return 1;
+            if (n == 2) return 2;
+            int i = 2;
+            var cur = (a: 1, b: 2);
+            while (i < n)
+            {
+                cur = (cur.b, cur.a + cur.b);
+                i++;
+            }
+            return cur.b;
+        }
+
+        /// <summary>
+        /// 746. Min Cost Climbing Stairs
+        /// https://leetcode.com/problems/min-cost-climbing-stairs/?envType=study-plan&id=level-1
+        /// You are given an integer array cost where cost[i] is the cost of ith step on a staircase. 
+        /// Once you pay the cost, you can either climb one or two steps.
+        /// 
+        /// You can either start from the step with index 0, or the step with index 1.
+        /// 
+        /// Return the minimum cost to reach the top of the floor.
+        /// </summary>
+        /// <param name="cost"></param>
+        /// <returns></returns>
+        public int MinCostClimbingStairs(int[] cost)
+        {
+            if (cost.Length == 0) return 0;
+            if (cost.Length <= 2) return cost.Min();
+
+            int i = 1;
+            int next;
+            var cur = (a: 0, b: cost[0]);
+
+            while (i < cost.Length)
+            {
+                next = Math.Min(cur.a + cost[i], cur.b + cost[i]);
+                cur = (cur.b, next);
+                i++;
+            }
+
+            return Math.Min(cur.a, cur.b);
+        }
     }
 }

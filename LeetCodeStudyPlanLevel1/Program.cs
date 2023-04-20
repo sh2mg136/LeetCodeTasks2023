@@ -582,7 +582,7 @@ Debug.Assert(ires == FibonacciNumbers.Fibonacci[N]);
 ires = day9.Fibonacci_Ver2(N);
 Debug.Assert(ires == FibonacciNumbers.Fibonacci[N]);
 
-foreach(int i in FibonacciNumbers.Get(N))
+foreach (int i in FibonacciNumbers.Get(N))
 {
     Debug.WriteLine(i);
 }
@@ -596,3 +596,31 @@ Debug.Assert(ires == FibonacciNumbers.Fibonacci[N]);
 
 ires = day9.Fibonacci_Ver2(N);
 Debug.Assert(ires == FibonacciNumbers.Fibonacci[N]);
+
+
+const string WRONG = "Wrong answer";
+
+/////////////////////////////////////////////////////////////
+// 70. Climbing Stairs
+ires = day9.ClimbStairs(2);
+Debug.Assert(ires == 2, WRONG);
+
+ires = day9.ClimbStairs(3);
+Debug.Assert(ires == 3, WRONG);
+
+ires = day9.ClimbStairs(4);
+Debug.Assert(ires == 5, WRONG);
+
+ires = day9.ClimbStairs(5);
+Debug.Assert(ires == 8, WRONG);
+
+
+/////////////////////////////////////////////////////////////
+/// 746. Min Cost Climbing Stairs
+
+ires = day9.MinCostClimbingStairs(new int[] { 10, 15, 20 });
+Debug.Assert(ires == 15, WRONG);
+
+ires = day9.MinCostClimbingStairs(new int[] { 1, 100, 1, 1, 1, 100, 1, 1, 100, 1 });
+Debug.Assert(ires == 6, WRONG);
+
