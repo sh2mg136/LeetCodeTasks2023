@@ -1,4 +1,5 @@
-﻿using System.Drawing;
+﻿using System;
+using System.Drawing;
 
 namespace LeetCodeStudyPlanLevel1
 {
@@ -125,7 +126,7 @@ namespace LeetCodeStudyPlanLevel1
                     if (grid[i][j] == '1')
                     {
                         count++;
-                        
+
                         // update visited cells ver. 1
                         updateCell(grid, i, j);
 
@@ -173,5 +174,34 @@ namespace LeetCodeStudyPlanLevel1
 
             Parallel.ForEach(directions, d => DFS(grid, x + d.Item1, y + d.Item2));
         }
+
+
+        /////////////////////////////////////////////////////////////////////////////////////////
+        /// <summary>
+        /// 509. Fibonacci Number
+        /// https://leetcode.com/problems/fibonacci-number/?envType=study-plan&id=level-1
+        /// </summary>
+        /// <param name="n"></param>
+        /// <returns></returns>
+        public int Fibonacci_Ver1(int n)
+        {
+            int res = 0;
+            res = calcFib(n);
+            return res;
+        }
+
+        int calcFib(int n)
+        {
+            if (n <= 1)
+                return n;
+
+            return calcFib(n - 1) + calcFib(n - 2);
+        }
+
+        public int Fibonacci_Ver2(int N)
+        {
+            return (int)Math.Round((Math.Pow(((Math.Sqrt(5) + 1) / 2), N)) / Math.Sqrt(5));
+        }
+
     }
 }

@@ -571,3 +571,28 @@ ires = day9.NumIslands(inputGrid);
 Debug.Assert(ires == 3);
 
 
+
+/////////////////////////////////////////////////////////////
+/// 509. Fibonacci Number
+
+int N = 5;
+ires = day9.Fibonacci_Ver1(N);
+Debug.Assert(ires == FibonacciNumbers.Fibonacci[N]);
+
+ires = day9.Fibonacci_Ver2(N);
+Debug.Assert(ires == FibonacciNumbers.Fibonacci[N]);
+
+foreach(int i in FibonacciNumbers.Get(N))
+{
+    Debug.WriteLine(i);
+}
+var list = FibonacciNumbers.Get(N).ToList();
+ires = list[N];
+Debug.Assert(ires == FibonacciNumbers.Fibonacci[N]);
+
+N = 10;
+ires = day9.Fibonacci_Ver1(N);
+Debug.Assert(ires == FibonacciNumbers.Fibonacci[N]);
+
+ires = day9.Fibonacci_Ver2(N);
+Debug.Assert(ires == FibonacciNumbers.Fibonacci[N]);
