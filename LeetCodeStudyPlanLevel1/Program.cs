@@ -1,6 +1,7 @@
 ﻿// See https://aka.ms/new-console-template for more information
 using LeetCodeStudyPlanLevel1;
 using System;
+using System.Data;
 using System.Diagnostics;
 
 Console.WriteLine("LeetCode Study Plan - 1");
@@ -624,3 +625,16 @@ Debug.Assert(ires == 15, WRONG);
 ires = day9.MinCostClimbingStairs(new int[] { 1, 100, 1, 1, 1, 100, 1, 1, 100, 1 });
 Debug.Assert(ires == 6, WRONG);
 
+
+/////////////////////////////////////////////////////////////
+/// 62. Unique Paths
+UniquePathsClass upc = new UniquePathsClass();
+
+ires = upc.UniquePaths(3, 7);
+Debug.Assert(ires == 28, WRONG);
+
+ires = upc.UniquePaths(3, 2);
+Debug.Assert(ires == 3, WRONG);
+
+ires = upc.UniquePaths(1, 1);
+Debug.Assert(ires == 1, WRONG);
