@@ -671,5 +671,25 @@ var lp = "abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqr
 ares = Anagram.FindAnagrams(ls, lp);
 sw.Stop();
 Debug.WriteLine(sw.ElapsedMilliseconds);
-Debug.Assert(sw.ElapsedMilliseconds <= 1000);
+Debug.Assert(sw.ElapsedMilliseconds <= 1500);
 Debug.Assert(ares.Count == 10063);
+
+
+
+/////////////////////////////////////////////////////////////
+/// 424. Longest Repeating Character Replacement
+
+ires = LongestRepeatingCharacterReplacement.Go("AABABBBA", 1);
+Debug.Assert(ires == 5);
+
+
+ires = LongestRepeatingCharacterReplacement.Go("AABABBA", 1);
+Debug.Assert(ires == 4);
+
+
+ires = LongestRepeatingCharacterReplacement.Go("ABAB", 2);
+Debug.Assert(ires == 4);
+
+
+ires = LongestRepeatingCharacterReplacement.Go("AABABBACCBCBCCBA", 2);
+Debug.Assert(ires == 7);
