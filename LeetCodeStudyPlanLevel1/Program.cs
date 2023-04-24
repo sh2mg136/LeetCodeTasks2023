@@ -773,3 +773,36 @@ Debug.Assert(str == "accaccacc", WRONG);
 str = DecodeStringClass.DecodeString("2[abc]3[cd]ef");
 Debug.Assert(str == "abcabccdcdcdef", WRONG);
 
+
+
+/////////////////////////////////////////////////////////////
+/// 1046. Last Stone Weight
+
+ires = DecodeStringClass.LastStoneWeight(new int[] { 2, 2 });
+Debug.Assert(ires == 0, WRONG);
+
+ires = DecodeStringClass.LastStoneWeight(new int[] { 2, 7, 4, 1, 8, 1 });
+Debug.Assert(ires == 1, WRONG);
+
+ires = DecodeStringClass.LastStoneWeight(new int[] { 1 });
+Debug.Assert(ires == 1, WRONG);
+
+
+var input = new string[] { "Bat", "footbal", "innocence", "approximation" };
+str = DecodeStringClass.Encode(input);
+Debug.WriteLine(str);
+var decoded = DecodeStringClass.Decode(str);
+Debug.Assert(Enumerable.SequenceEqual(input, decoded), WRONG);
+
+
+var array = new int[] { 1, 2, 3, 4, 5, 6, 7, 8 };
+var thirdItem = array[2];    // array[2]
+var lastItem = array[^1];    // array[new Index(1, fromEnd: true)]
+var someItem = array[^2];
+
+var slice1 = array[2..^3];    // array[new Range(2, new Index(3, fromEnd: true))]
+var slice2 = array[..^3];     // array[Range.EndAt(new Index(3, fromEnd: true))]
+var slice3 = array[2..];      // array[Range.StartAt(2)]
+var slice4 = array[..];       // array[Range.All]
+
+Debug.WriteLine(lastItem);
