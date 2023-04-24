@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics.Metrics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -107,6 +108,40 @@ namespace LeetCodeStudyPlanLevel1
             chars.Reverse();
 
             return string.Join("", chars);
+        }
+
+        /// <summary>
+        /// 844. Backspace String Compare
+        /// https://leetcode.com/problems/backspace-string-compare/?envType=study-plan&id=level-1
+        /// 
+        /// Given two strings s and t, 
+        /// return true if they are equal 
+        /// when both are typed into empty text editors. 
+        /// '#' means a backspace character.
+        /// 
+        /// Note that after backspacing an empty text, the text will continue empty.
+        /// </summary>
+        /// <param name="s"></param>
+        /// <param name="t"></param>
+        /// <returns></returns>
+        public static bool BackspaceCompare(string s, string t)
+        {
+            var a = ProcessString(s);
+            var b = ProcessString(t);
+            return a.Equals(b);
+        }
+
+        static string ProcessString(string str)
+        {
+            Stack<char> stack = new Stack<char>();
+            foreach (char c in str)
+            {
+                if (c != '#')
+                    stack.Push(c);
+                else if (stack.Any())
+                    stack.Pop();
+            }
+            return string.Join("", stack.Reverse());
         }
     }
 }

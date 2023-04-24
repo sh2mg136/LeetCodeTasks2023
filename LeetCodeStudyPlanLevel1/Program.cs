@@ -733,15 +733,27 @@ Debug.Assert(str == "2147483647");
 /// 299. Bulls and Cows
 
 str = BullsAndCows.GetHint("1423", "0411");
-Debug.Assert(str == "1A1B");
+Debug.Assert(str == "1A1B", WRONG);
 
 str = BullsAndCows.GetHint("1123", "0111");
-Debug.Assert(str == "1A1B");
+Debug.Assert(str == "1A1B", WRONG);
 
 
 str = BullsAndCows.GetHint("1807", "7810");
-Debug.Assert(str == "1A3B");
+Debug.Assert(str == "1A3B", WRONG);
 
 str = BullsAndCows.GetHint("1122", "0001");
-Debug.Assert(str == "0A1B");
+Debug.Assert(str == "0A1B", WRONG);
 
+
+
+/////////////////////////////////////////////////////////////
+/// 844.Backspace String Compare
+bres = BullsAndCows.BackspaceCompare("ab#c", "ad#c");
+Debug.Assert(bres, WRONG);
+
+bres = BullsAndCows.BackspaceCompare("ab##", "c#d#");
+Debug.Assert(bres, WRONG);
+
+bres = BullsAndCows.BackspaceCompare("a#c", "b");
+Debug.Assert(!bres, WRONG);
