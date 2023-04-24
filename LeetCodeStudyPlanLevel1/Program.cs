@@ -757,3 +757,19 @@ Debug.Assert(bres, WRONG);
 
 bres = BullsAndCows.BackspaceCompare("a#c", "b");
 Debug.Assert(!bres, WRONG);
+
+
+/////////////////////////////////////////////////////////////
+/// 394. Decode String
+str = DecodeStringClass.DecodeString("s3[a2[bc]]s");
+Debug.Assert(str == "sabcbcabcbcabcbcs", WRONG);
+
+str = DecodeStringClass.DecodeString("3[a]2[bc]");
+Debug.Assert(str == "aaabcbc", WRONG);
+
+str = DecodeStringClass.DecodeString("3[a2[c]]");
+Debug.Assert(str == "accaccacc", WRONG);
+
+str = DecodeStringClass.DecodeString("2[abc]3[cd]ef");
+Debug.Assert(str == "abcabccdcdcdef", WRONG);
+
