@@ -27,7 +27,8 @@ namespace LeetCodeStudyPlanLevel1
         public int Search(int[] nums, int target)
         {
             // return Search_1(nums, target);
-            return Search_2(nums, target);
+            // return Search_2(nums, target);
+            return Search_3(nums, target);
         }
 
         public int Search_1(int[] nums, int target)
@@ -62,6 +63,26 @@ namespace LeetCodeStudyPlanLevel1
             }
 
             return cnt;
+        }
+
+        public int Search_3(int[] nums, int target)
+        {
+            if (!nums.Contains(target)) return -1;
+            
+            int j;
+
+            for (int i = 0; i < nums.Length / 2; i++)
+            {
+                if (nums[i] == target) 
+                    return i;
+                
+                j = nums.Length - i - 1;
+
+                if (nums[j] == target)
+                    return nums.Length - i - 1;
+            }
+
+            return -1;
         }
 
     }

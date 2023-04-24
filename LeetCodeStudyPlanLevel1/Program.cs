@@ -90,12 +90,12 @@ var b1 = new ListNode(1, b2);
 var res_list = sol2.MergeTwoLists(a1, b1);
 Debug.Assert(res_list != null);
 Debug.Assert(res_list.val == 1);
-Debug.Assert(res_list.next.val == 1);
-Debug.Assert(res_list.next.next.val == 2);
-Debug.Assert(res_list.next.next.next.val == 3);
-Debug.Assert(res_list.next.next.next.next.val == 4);
-Debug.Assert(res_list.next.next.next.next.next.val == 4);
-Debug.Assert(res_list.next.next.next.next.next.next == null);
+Debug.Assert(res_list.next != null && res_list.next.val == 1);
+Debug.Assert(res_list.next.next != null && res_list.next.next.val == 2);
+Debug.Assert(res_list.next.next.next != null && res_list.next.next.next.val == 3);
+Debug.Assert(res_list.next.next.next.next != null && res_list.next.next.next.next.val == 4);
+Debug.Assert(res_list.next.next.next.next.next != null && res_list.next.next.next.next.next.val == 4);
+Debug.Assert(res_list.next.next.next.next.next != null && res_list.next.next.next.next.next.next == null);
 
 
 
@@ -355,6 +355,18 @@ CBinarySearch cbc = new CBinarySearch();
 
 ires = cbc.Search(new int[] { -1, 0, 3, 5, 9, 12 }, 9);
 Debug.Assert(ires == 4);
+
+ires = cbc.Search(new int[] { 0, 3, 5, 9, 12, 15, 21, 24, 32 }, 9);
+Debug.Assert(ires == 3);
+
+ires = cbc.Search(new int[] { 0, 3, 5, 9, 12, 15, 21, 24, 32 }, 32);
+Debug.Assert(ires == 8);
+
+ires = cbc.Search(new int[] { -1, 0, 3, 5, 9, 12, 15, 21, 24, 32 }, 32);
+Debug.Assert(ires == 9);
+
+ires = cbc.Search(new int[] { 0, 3, 5, 9, 12, 15, 21, 24, 32 }, 0);
+Debug.Assert(ires == 0);
 
 ires = cbc.Search(new int[] { -1, 0, 3, 5, 9, 12 }, 2);
 Debug.Assert(ires == -1);
@@ -693,3 +705,43 @@ Debug.Assert(ires == 4);
 
 ires = LongestRepeatingCharacterReplacement.Go("AABABBACCBCBCCBA", 2);
 Debug.Assert(ires == 7);
+
+
+
+/////////////////////////////////////////////////////////////
+/// Integer to string
+/// 
+ires = 12345;
+str = BullsAndCows.ByteToString(ires);
+Debug.Assert(str == "00000000000000000011000000111001");
+
+str = BullsAndCows.IntToString(12345);
+Debug.Assert(str == "12345");
+
+str = BullsAndCows.IntToString(2040);
+Debug.Assert(str == "2040");
+
+str = BullsAndCows.IntToString(2000434400);
+Debug.Assert(str == "2000434400");
+
+str = BullsAndCows.IntToString(2147483647);
+Debug.Assert(str == "2147483647");
+
+
+
+/////////////////////////////////////////////////////////////
+/// 299. Bulls and Cows
+
+str = BullsAndCows.GetHint("1423", "0411");
+Debug.Assert(str == "1A1B");
+
+str = BullsAndCows.GetHint("1123", "0111");
+Debug.Assert(str == "1A1B");
+
+
+str = BullsAndCows.GetHint("1807", "7810");
+Debug.Assert(str == "1A3B");
+
+str = BullsAndCows.GetHint("1122", "0001");
+Debug.Assert(str == "0A1B");
+

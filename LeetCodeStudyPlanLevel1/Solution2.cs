@@ -28,6 +28,7 @@ namespace LeetCodeStudyPlanLevel1
         {
             return MergeTwoListsV3(list1, list2);
 
+            /*
             var r = (new Random()).Next(3);
 
             switch (r)
@@ -42,6 +43,7 @@ namespace LeetCodeStudyPlanLevel1
                 case 2:
                     return MergeTwoListsV2(list1, list2);
             }
+            */
 
             /*
             if (new Random().Next(10) >= 5)
