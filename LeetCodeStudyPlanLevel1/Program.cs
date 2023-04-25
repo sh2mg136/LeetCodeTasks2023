@@ -806,3 +806,21 @@ var slice3 = array[2..];      // array[Range.StartAt(2)]
 var slice4 = array[..];       // array[Range.All]
 
 Debug.WriteLine(lastItem);
+
+
+
+/////////////////////////////////////////////////////////////
+/// 692. Top K Frequent Words
+
+string[] words = new string[] { "i", "love", "leetcode", "i", "love", "coding" };
+var slist = TopKFrequentWordsClass.TopKFrequent(words, 2);
+var correct_ans = new string[] { "i", "love" };
+Debug.Assert(Enumerable.SequenceEqual(slist, correct_ans), WRONG);
+
+
+words = new string[] { "the", "day", "is", "sunny", "the", "the", "the", "sunny", "is", "is" };
+slist = TopKFrequentWordsClass.TopKFrequent(words, 4);
+correct_ans = new string[] { "the", "is", "sunny", "day" };
+Debug.Assert(Enumerable.SequenceEqual(slist, correct_ans), WRONG);
+
+
