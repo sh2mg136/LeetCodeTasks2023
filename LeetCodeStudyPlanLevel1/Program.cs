@@ -117,6 +117,15 @@ Debug.Assert(res_list.next.next.next != null && res_list.next.next.next.val == 2
 Debug.Assert(res_list.next.next.next.next != null && res_list.next.next.next.next.val == 1);
 Debug.Assert(res_list.next.next.next.next.next == null);
 
+c3.next = null;
+c2 = new ListNode(2, c3);
+c1 = new ListNode(1, c2);
+res_list = sol2.ReverseList(c1);
+Debug.Assert(res_list != null && res_list.val == 3);
+Debug.Assert(res_list.next != null && res_list.next.val == 2);
+Debug.Assert(res_list.next.next != null && res_list.next.next.val == 1);
+
+
 
 /////////////////////////////////////////////////////////////
 // 876. Middle of the Linked List
@@ -823,4 +832,47 @@ slist = TopKFrequentWordsClass.TopKFrequent(words, 4);
 correct_ans = new string[] { "the", "is", "sunny", "day" };
 Debug.Assert(Enumerable.SequenceEqual(slist, correct_ans), WRONG);
 
+
+
+/////////////////////////////////////////////////////////////
+/// 8. String to Integer (atoi)
+ires = StrToIntClass.StringToInt(" 42 ");
+Debug.Assert(ires == 42, WRONG);
+
+ires = StrToIntClass.StringToInt(" -42 ");
+Debug.Assert(ires == -42, WRONG);
+
+ires = StrToIntClass.StringToInt(" 4193 with words ");
+Debug.Assert(ires == 4193, WRONG);
+
+ires = StrToIntClass.StringToInt("0032");
+Debug.Assert(ires == 32, WRONG);
+
+ires = StrToIntClass.StringToInt("words and 987");
+Debug.Assert(ires == 0, WRONG);
+
+// int.MaxValue = 2 147 483 647
+ires = StrToIntClass.StringToInt("  2147483649 ");
+Debug.Assert(ires == 2147483647, WRONG);
+
+ires = StrToIntClass.StringToInt("  -2147483654 ");
+Debug.Assert(ires == int.MinValue, WRONG);
+
+ires = StrToIntClass.StringToInt("  -91283472332 ");
+Debug.Assert(ires == int.MinValue, WRONG); // -2147483648
+
+ires = StrToIntClass.StringToInt(" 3.14159 ");
+Debug.Assert(ires == 3, WRONG); // -2147483648
+
+ires = StrToIntClass.StringToInt("+-12");
+Debug.Assert(ires == 0, WRONG);
+
+ires = StrToIntClass.StringToInt("10000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000522545459");
+Debug.Assert(ires == 2147483647, WRONG);
+
+ires = StrToIntClass.StringToInt("  0000000000012345678");
+Debug.Assert(ires == 12345678, WRONG);
+
+ires = StrToIntClass.StringToInt("2147483646");
+Debug.Assert(ires == 2147483646, WRONG);
 

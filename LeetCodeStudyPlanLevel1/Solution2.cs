@@ -1,5 +1,4 @@
-﻿using System;
-using System.Diagnostics;
+﻿using System.Diagnostics;
 
 namespace LeetCodeStudyPlanLevel1
 {
@@ -12,6 +11,13 @@ namespace LeetCodeStudyPlanLevel1
         {
             this.val = val;
             this.next = next;
+        }
+
+        public override string ToString()
+        {
+            var n = next == null ? "NULL" : next.val.ToString();
+            var nn = (next != null && next?.next != null) ? next?.next?.val.ToString() : "NULL";
+            return $"{val} -> {n} -> {nn}";
         }
     }
 
@@ -176,19 +182,50 @@ namespace LeetCodeStudyPlanLevel1
         /// <returns></returns>
         public ListNode? ReverseList(ListNode head)
         {
+            // return ReverseList_V1(head);
+            return ReverseList_V2(head);
+        }
+
+        /// <summary>
+        /// Iterative solution
+        /// </summary>
+        /// <param name="head"></param>
+        /// <returns></returns>
+        private ListNode? ReverseList_V1(ListNode head)
+        {
             ListNode? node = null;
             ListNode? ptr = head;
-            ListNode? next_node;
+            ListNode? next;
 
             while (ptr != null)
             {
-                next_node = ptr.next;
+                next = ptr.next;
                 ptr.next = node;
                 node = ptr;
-                ptr = next_node;
+                ptr = next;
             }
 
             return node;
+        }
+
+        /// <summary>
+        /// Iterative solution 2
+        /// </summary>
+        /// <param name="head"></param>
+        /// <returns></returns>
+        private ListNode? ReverseList_V2(ListNode head)
+        {
+            ListNode? prev = null, curr = head, temp;
+
+            while (curr != null)
+            {
+                temp = curr.next;
+                curr.next = prev;
+                prev = curr;
+                curr = temp;
+            }
+
+            return prev;
         }
 
         /// <summary>
