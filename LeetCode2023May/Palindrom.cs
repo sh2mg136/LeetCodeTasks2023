@@ -1,4 +1,6 @@
-﻿namespace LeetCode2023May
+﻿using System.Text;
+
+namespace LeetCode2023May
 {
     internal class Palindrom
     {
@@ -87,6 +89,59 @@
                 len = end - start - 1;
                 Palindrom.start = start + 1;
             }
+        }
+
+        /// <summary>
+        /// 9. Palindrome Number
+        /// https://leetcode.com/problems/palindrome-number/
+        /// 
+        /// Given an integer x, return true if x is a palindrome, and false otherwise.
+        /// </summary>
+        /// <param name="x"></param>
+        /// <returns></returns>
+        public static bool IsPalindrome(int x)
+        {
+            if (x < 0) return false;
+            if (x <= 9) return true;
+
+            var str = x.ToString();
+            int j = str.Length - 1;
+
+            for (int i = 0; i < str.Length / 2; i++)
+            {
+                if (str[i] != str[j]) return false;
+                j--;
+            }
+
+            return true;
+        }
+
+        /// <summary>
+        /// 14. Longest Common Prefix
+        /// https://leetcode.com/problems/longest-common-prefix/
+        /// </summary>
+        /// <param name="strs"></param>
+        /// <returns></returns>
+        public static string LongestCommonPrefix(string[] strs)
+        {
+            if (strs == null || strs.Length == 0) return string.Empty;
+            if (strs.Length == 1) return strs[0];
+
+            var shortest = strs.MinBy(a => a.Length) ?? string.Empty;
+
+            int cnt = 0;
+
+            for (int i = 0; i < shortest.Length; i++)
+            {
+                foreach (var s in strs.Skip(1))
+                {
+                    if (s.Length <= i || strs.First()[i] != s[i])
+                        return strs.First()[..cnt];
+                }
+                cnt++;
+            }
+
+            return strs.First()[..cnt];
         }
     }
 }
