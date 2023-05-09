@@ -9,16 +9,16 @@ string sres;
 const string WRONG = "Wrong answer!";
 
 sres = Palindrom.LongestPalindrome("babad");
-Debug.Assert(sres == "bab" || sres == "aba");
+Debug.Assert(sres == "bab" || sres == "aba", WRONG);
 
 sres = Palindrom.LongestPalindrome("cbbd");
-Debug.Assert(sres == "bb");
+Debug.Assert(sres == "bb", WRONG);
 
 sres = Palindrom.LongestPalindrome("a");
-Debug.Assert(sres == "a");
+Debug.Assert(sres == "a", WRONG);
 
 sres = Palindrom.LongestPalindrome("ac");
-Debug.Assert(sres == "a" || sres == "c");
+Debug.Assert(sres == "a" || sres == "c", WRONG);
 
 
 /////////////////////////////////////////////////////////////////
@@ -46,31 +46,31 @@ sw.Start();
 ires = Vowels.MaxVowels(str, 50436);
 sw.Stop();
 Debug.Assert(ires == 9694, WRONG);
-Debug.Assert(sw.ElapsedMilliseconds < 10000);
+Debug.Assert(sw.ElapsedMilliseconds < 10000, WRONG);
 
 
 /////////////////////////////////////////////////////////////////
 /// 9. Palindrome Number
 bres = Palindrom.IsPalindrome(22);
-Debug.Assert(bres);
+Debug.Assert(bres, WRONG);
 
 bres = Palindrom.IsPalindrome(10);
-Debug.Assert(!bres);
+Debug.Assert(!bres, WRONG);
 
 bres = Palindrom.IsPalindrome(121);
-Debug.Assert(bres);
+Debug.Assert(bres, WRONG);
 
 bres = Palindrom.IsPalindrome(-121);
-Debug.Assert(!bres);
+Debug.Assert(!bres, WRONG);
 
 
 /////////////////////////////////////////////////////////////////
 ///
 sres = Palindrom.LongestCommonPrefix(new string[] { "flower", "flow", "flight" });
-Debug.Assert(sres == "fl");
+Debug.Assert(sres == "fl", WRONG);
 
 sres = Palindrom.LongestCommonPrefix(new string[] { "dog", "racecar", "car" });
-Debug.Assert(sres == "");
+Debug.Assert(sres == "", WRONG);
 
 
 /////////////////////////////////////////////////////////////////
@@ -83,3 +83,32 @@ Debug.Assert(ires == 1, WRONG);
 
 ires = WaterContainer.MaxArea(new int[] { 1, 8, 7, 51, 50, 4, 9, 3, 7 });
 Debug.Assert(ires == 50, WRONG);
+
+
+/////////////////////////////////////////////////////////////////
+/// 20. Valid Parentheses
+
+bres = ValidParentheses.IsValid("({[({})]})");
+Debug.Assert(bres, WRONG);
+
+bres = ValidParentheses.IsValid("()");
+Debug.Assert(bres, WRONG);
+
+bres = ValidParentheses.IsValid("{}");
+Debug.Assert(bres, WRONG);
+
+bres = ValidParentheses.IsValid("[]");
+Debug.Assert(bres, WRONG);
+
+bres = ValidParentheses.IsValid("(){}[]");
+Debug.Assert(bres, WRONG);
+
+bres = ValidParentheses.IsValid("({[{}]})");
+Debug.Assert(bres, WRONG);
+
+bres = ValidParentheses.IsValid("(()");
+Debug.Assert(!bres, WRONG);
+
+bres = ValidParentheses.IsValid("(])");
+Debug.Assert(!bres, WRONG);
+
