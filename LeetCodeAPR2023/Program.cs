@@ -1,6 +1,7 @@
 ﻿using LeetCodeAPR2023;
 using System.Diagnostics;
 
+// Two Sum
 // https://leetcode.com/problems/two-sum/
 Console.WriteLine("LeetCode: Two-Sum");
 var res = (new TwoSumSolver()).TwoSum(new int[] { 1, 2, 3, 5, 6 }, 5);

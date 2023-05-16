@@ -112,3 +112,78 @@ Debug.Assert(!bres, WRONG);
 bres = ValidParentheses.IsValid("(])");
 Debug.Assert(!bres, WRONG);
 
+
+/////////////////////////////////////////////////////////////////
+/// 1035. Uncrossed Lines
+
+ires = UncrossedLines.MaxUncrossedLines(new int[] { 3, 2 }, new int[] { 2, 2, 2, 3 });
+Debug.Assert(ires == 1, WRONG);
+
+ires = UncrossedLines.MaxUncrossedLines(new int[] { 1, 2, 3, 4 }, new int[] { 1, 2, 3, 4 });
+Debug.Assert(ires == 4, WRONG);
+
+ires = UncrossedLines.MaxUncrossedLines(new int[] { 1, 4, 2 }, new int[] { 1, 2, 4 });
+Debug.Assert(ires == 2, WRONG);
+
+ires = UncrossedLines.MaxUncrossedLines(new int[] { 2, 5, 1, 2, 5 }, new int[] { 10, 5, 2, 1, 5, 2 });
+Debug.Assert(ires == 3, WRONG);
+
+ires = UncrossedLines.MaxUncrossedLines(new int[] { 1, 3, 7, 1, 7, 5 }, new int[] { 1, 9, 2, 5, 1 });
+Debug.Assert(ires == 2, WRONG);
+
+ires = UncrossedLines.MaxUncrossedLines(new int[] { 1, 5 }, new int[] { 2, 3, 4, 5, 6, 7, 8, 9 });
+Debug.Assert(ires == 1, WRONG);
+
+ires = UncrossedLines.MaxUncrossedLines(new int[] { 1, 5, 7, 8, 9 }, new int[] { 2, 3, 4, 5, 6, 7, 8, 9 });
+Debug.Assert(ires == 4, WRONG);
+
+ires = UncrossedLines.MaxUncrossedLines(new int[] { 1, 5, 7, 2, 3 }, new int[] { 1, 2, 3, 4, 5, 6, 7, 8, 9 });
+Debug.Assert(ires == 3, WRONG);
+
+
+
+/////////////////////////////////////////////////////////////////
+// Two Sum II
+// https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/
+
+Console.WriteLine("LeetCode: Two-Sum II");
+var res = (new TwoSumIISolver()).TwoSum(new int[] { 2, 7, 11, 15 }, 9);
+var correct = new int[] { 1, 2 };
+bool isEqual = Enumerable.SequenceEqual(res, correct);
+Debug.Assert(isEqual, "Not matched");
+
+
+res = (new TwoSumIISolver()).TwoSum(new int[] { 2, 3, 4 }, 6);
+correct = new int[] { 1, 3 };
+isEqual = Enumerable.SequenceEqual(res, correct);
+Debug.Assert(isEqual, "Not matched");
+
+
+res = (new TwoSumIISolver()).TwoSum(new int[] { -1, 0 }, -1);
+correct = new int[] { 1, 2 };
+isEqual = Enumerable.SequenceEqual(res, correct);
+Debug.Assert(isEqual, "Not matched");
+
+
+res = (new TwoSumIISolver()).TwoSum(new int[] { 1, 2, 3, 4, 4, 9, 56, 90 }, 8);
+correct = new int[] { 4, 5 };
+isEqual = Enumerable.SequenceEqual(res, correct);
+Debug.Assert(isEqual, "Not matched");
+
+
+/////////////////////////////////////////////////////////////////
+/// 15. 3Sum
+
+/*
+var three = Three_3_Sum.ThreeSum(new int[] { -1, 0, 1, 2, -1, -4 });
+Debug.Assert(three.Count == 2, WRONG);
+Debug.Assert(Enumerable.SequenceEqual(three[0], new List<int>() { -1, 0, 1 }), WRONG);
+Debug.Assert(Enumerable.SequenceEqual(three[1], new List<int>() { -1, 2, -1 }), WRONG);
+
+three = Three_3_Sum.ThreeSum(new int[] { 0, 1, 1 });
+Debug.Assert(three.Count == 0, WRONG);
+
+three = Three_3_Sum.ThreeSum(new int[] { 0, 0, 0 });
+Debug.Assert(three.Count == 1, WRONG);
+Debug.Assert(Enumerable.SequenceEqual(three[0], new List<int>() { 0, 0, 0 }), WRONG);
+*/
