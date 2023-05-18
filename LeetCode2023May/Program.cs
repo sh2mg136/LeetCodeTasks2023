@@ -174,16 +174,30 @@ Debug.Assert(isEqual, "Not matched");
 /////////////////////////////////////////////////////////////////
 /// 15. 3Sum
 
-/*
-var three = Three_3_Sum.ThreeSum(new int[] { -1, 0, 1, 2, -1, -4 });
+var three = Three_3_Sum.ThreeSum(new int[] { -1, 0, 1, 2, -1, -4, -2, -3, 3, 0, 4 });
+Debug.Assert(three.Count == 9, WRONG);
+foreach (var triple in three)
+{
+    Debug.Assert(triple.Sum(x => x) == 0, WRONG);
+}
+
+three = Three_3_Sum.ThreeSum(new int[] { -1, 0, 1, 2, -1, -4 });
 Debug.Assert(three.Count == 2, WRONG);
-Debug.Assert(Enumerable.SequenceEqual(three[0], new List<int>() { -1, 0, 1 }), WRONG);
-Debug.Assert(Enumerable.SequenceEqual(three[1], new List<int>() { -1, 2, -1 }), WRONG);
+var correct3 = new List<List<int>>() { new List<int>() { -1, 0, 1 }, new List<int>() { -1, 2, -1 } };
+foreach (var triple in three)
+{
+    Debug.Assert(triple.Sum(x => x) == 0, WRONG);
+}
+
+//Debug.Assert(Enumerable.SequenceEqual(three[0], new List<int>() { -1, 0, 1 }), WRONG);
+//Debug.Assert(Enumerable.SequenceEqual(three[1], new List<int>() { -1, 2, -1 }), WRONG);
 
 three = Three_3_Sum.ThreeSum(new int[] { 0, 1, 1 });
 Debug.Assert(three.Count == 0, WRONG);
 
 three = Three_3_Sum.ThreeSum(new int[] { 0, 0, 0 });
 Debug.Assert(three.Count == 1, WRONG);
-Debug.Assert(Enumerable.SequenceEqual(three[0], new List<int>() { 0, 0, 0 }), WRONG);
-*/
+foreach (var triple in three)
+{
+    Debug.Assert(triple.Sum(x => x) == 0, WRONG);
+}

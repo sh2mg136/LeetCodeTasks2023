@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.Immutable;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
@@ -24,15 +25,43 @@ namespace LeetCode2023May
         /// <returns></returns>
         public static IList<IList<int>> ThreeSum(int[] nums)
         {
-            for (int i = 0; i < nums.Length; i++)
-            {
-                for (int j = 0; j < nums.Length; j++)
-                {
+            var res = new List<IList<int>>();
 
+            Array.Sort(nums);
+
+            int i = 0, l, r;
+
+            foreach (var a in nums)
+            {
+                if (i > 0 && a == nums[i - 1])
+                {
+                    i++;
+                    continue;
                 }
+
+                l = i + 1;
+                r = nums.Length - 1;
+
+                while (l < r)
+                {
+                    var sum3 = a + nums[l] + nums[r];
+
+                    if (sum3 < 0) l++;
+                    else if (sum3 > 0) r--;
+                    else
+                    {
+                        res.Add(new List<int>() { a, nums[l], nums[r] });
+
+                        l++;
+                        while (nums[l] == nums[l - 1] && l < r)
+                            l++;
+                    }
+                }
+
+                i++;
             }
 
-            return new List<IList<int>>();
+            return res;
         }
     }
 }
