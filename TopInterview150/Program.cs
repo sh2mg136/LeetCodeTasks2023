@@ -1,5 +1,8 @@
 ﻿// https://leetcode.com/studyplan/top-interview-150/
+using System.Diagnostics;
 using TopInterview150;
+
+const string WRONG = "- = Wrong answer = -";
 
 Console.WriteLine("Top Interview 150");
 
@@ -26,4 +29,14 @@ Console.WriteLine("Top Interview 150");
 // Input: nums1 = [0], m = 0, nums2 = [1], n = 1
 // Output: [1]
 (new MergeArrayClass()).Merge(new int[] { 0 }, 0, new int[] { 1 }, 1);
+
+
+////////////////////////////////////////////////////////////////////////////////////////////
+/// 27. Remove Element
+
+int iRes = RemoveElementClass.RemoveElement(new int[] { 3, 2, 2, 3 }, 3);
+Debug.Assert(iRes == 2, WRONG);
+
+iRes = RemoveElementClass.RemoveElement(new int[] { 0, 1, 2, 2, 3, 0, 4, 2 }, 2);
+Debug.Assert(iRes == 5, WRONG);
 
