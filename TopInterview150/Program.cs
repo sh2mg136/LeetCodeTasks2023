@@ -30,7 +30,6 @@ Console.WriteLine("Top Interview 150");
 // Output: [1]
 (new MergeArrayClass()).Merge(new int[] { 0 }, 0, new int[] { 1 }, 1);
 
-
 ////////////////////////////////////////////////////////////////////////////////////////////
 /// 27. Remove Element
 
@@ -39,7 +38,6 @@ Debug.Assert(iRes == 2, WRONG);
 
 iRes = RemoveElementClass.RemoveElement(new int[] { 0, 1, 2, 2, 3, 0, 4, 2 }, 2);
 Debug.Assert(iRes == 5, WRONG);
-
 
 ////////////////////////////////////////////////////////////////////////////////////////////
 /// 26. Remove Duplicates from Sorted Array
@@ -50,3 +48,15 @@ Debug.Assert(iRes == 2, WRONG);
 iRes = RemoveElementClass.RemoveDuplicates(new int[] { 0, 0, 1, 1, 1, 2, 2, 3, 3, 4 });
 Debug.Assert(iRes == 5, WRONG);
 
+////////////////////////////////////////////////////////////////////////////////////////////
+/// 80. Remove Duplicates from Sorted Array II
+
+iRes = RemoveElementClass.RemoveDuplicates2(new int[] { 1, 1, 1, 2, 2, 3 });
+// Output: 5, nums = [1,1,2,2,3,_]
+Debug.Assert(iRes == 5, WRONG);
+
+iRes = RemoveElementClass.RemoveDuplicates2(new int[] { 0, 0, 1, 1, 1, 1, 2, 3, 3 });
+// Output: 7, nums = [0,0,1,1,2,3,3,_,_]
+Debug.Assert(iRes == 7, WRONG);
+
+////////////////////////////////////////////////////////////////////////////////////////////
