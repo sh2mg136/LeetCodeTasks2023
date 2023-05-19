@@ -41,5 +41,26 @@ namespace TopInterview150
 
             return p;
         }
+
+        /// <summary>
+        /// 26. Remove Duplicates from Sorted Array
+        /// https://leetcode.com/problems/remove-duplicates-from-sorted-array/?envType=study-plan-v2&id=top-interview-150
+        /// </summary>
+        /// <param name="nums"></param>
+        /// <returns></returns>
+        public static int RemoveDuplicates(int[] nums)
+        {
+            int p = 1;
+
+            for (int i = 1; i < nums.Length; i++)
+            {
+                if (nums[i] == nums[i - 1])
+                    continue;
+                else
+                    nums[p++] = nums[i];
+            }
+
+            return p;
+        }
     }
 }

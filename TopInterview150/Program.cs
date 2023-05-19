@@ -40,3 +40,13 @@ Debug.Assert(iRes == 2, WRONG);
 iRes = RemoveElementClass.RemoveElement(new int[] { 0, 1, 2, 2, 3, 0, 4, 2 }, 2);
 Debug.Assert(iRes == 5, WRONG);
 
+
+////////////////////////////////////////////////////////////////////////////////////////////
+/// 26. Remove Duplicates from Sorted Array
+
+iRes = RemoveElementClass.RemoveDuplicates(new int[] { 1, 1, 2 });
+Debug.Assert(iRes == 2, WRONG);
+
+iRes = RemoveElementClass.RemoveDuplicates(new int[] { 0, 0, 1, 1, 1, 2, 2, 3, 3, 4 });
+Debug.Assert(iRes == 5, WRONG);
+
