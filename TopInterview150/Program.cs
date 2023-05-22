@@ -71,3 +71,17 @@ Debug.Assert(iRes == 2, WRONG);
 iRes = Majority.MajorityElement(new int[] { 2, 9, 8, 2, 1, 8, 1, 7, 1, 2, 6, 6, 4, 2, 3, 4, 8, 9, 8, 8, 3, 8, 5, 8, 8, 0, 8, 0, 8 });
 Debug.Assert(iRes == 8, WRONG);
 
+////////////////////////////////////////////////////////////////////////////////////////////
+/// 189. Rotate Array
+
+(new RotateArray()).Rotate(new int[] { 1, 2 }, 3);
+
+(new RotateArray()).Rotate(new int[] { 1, 2, 3 }, 4);
+
+(new RotateArray()).Rotate(new int[] { 1, 2, 3, 4, 5, 6 }, 2);
+
+(new RotateArray()).Rotate(new int[] { 1, 2, 3, 4, 5, 6 }, 3);
+
+(new RotateArray()).Rotate(new int[] { 1, 2, 3, 4, 5, 6, 7 }, 2);
+
+(new RotateArray()).Rotate(new int[] { 1, 2, 3, 4, 5, 6, 7 }, 3);
