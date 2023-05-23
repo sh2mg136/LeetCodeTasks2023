@@ -85,3 +85,25 @@ Debug.Assert(iRes == 8, WRONG);
 (new RotateArray()).Rotate(new int[] { 1, 2, 3, 4, 5, 6, 7 }, 2);
 
 (new RotateArray()).Rotate(new int[] { 1, 2, 3, 4, 5, 6, 7 }, 3);
+
+////////////////////////////////////////////////////////////////////////////////////////////
+/// 58. Length of Last Word (Easy)
+
+iRes = LengthOfLastWord.GetLengthOfLastWord("Hello World");
+Debug.Assert(iRes == 5, WRONG);
+
+iRes = LengthOfLastWord.GetLengthOfLastWord("   fly me   to   the moon  ");
+Debug.Assert(iRes == 4, WRONG);
+
+iRes = LengthOfLastWord.GetLengthOfLastWord("luffy is still joyboy");
+Debug.Assert(iRes == 6, WRONG);
+
+////////////////////////////////////////////////////////////////////////////////////////////
+/// 135. Candy (Hard)
+
+iRes = CandyClass.Candy(new int[] { 1, 0, 2 });
+Debug.Assert(iRes == 5, WRONG);
+
+iRes = CandyClass.Candy(new int[] { 1, 2, 2 });
+Debug.Assert(iRes == 4, WRONG);
+
