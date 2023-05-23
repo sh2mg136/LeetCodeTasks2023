@@ -101,6 +101,9 @@ Debug.Assert(iRes == 6, WRONG);
 ////////////////////////////////////////////////////////////////////////////////////////////
 /// 135. Candy (Hard)
 
+iRes = CandyClass.Candy(new int[] { 5, 3, 2, 1, 2, 6, 5, 4, 4, 7 });
+Debug.Assert(iRes == 21, WRONG);
+
 iRes = CandyClass.Candy(new int[] { 1, 0, 2 });
 Debug.Assert(iRes == 5, WRONG);
 
