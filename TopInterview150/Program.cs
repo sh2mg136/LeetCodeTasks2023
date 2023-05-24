@@ -110,3 +110,16 @@ Debug.Assert(iRes == 5, WRONG);
 iRes = CandyClass.Candy(new int[] { 1, 2, 2 });
 Debug.Assert(iRes == 4, WRONG);
 
+
+////////////////////////////////////////////////////////////////////////////////////////////
+/// 122. Best Time to Buy and Sell Stock II
+
+iRes = (new BuySellStockClassII()).MaxProfit(new int[] { 7, 1, 5, 3, 6, 4 });
+Debug.Assert(iRes == 7, WRONG);
+
+iRes = (new BuySellStockClassII()).MaxProfit(new int[] { 1, 2, 3, 4, 5 });
+Debug.Assert(iRes == 4, WRONG);
+
+iRes = (new BuySellStockClassII()).MaxProfit(new int[] { 7, 6, 4, 3, 1 });
+Debug.Assert(iRes == 0, WRONG);
+
