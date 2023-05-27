@@ -123,3 +123,33 @@ Debug.Assert(iRes == 4, WRONG);
 iRes = (new BuySellStockClassII()).MaxProfit(new int[] { 7, 6, 4, 3, 1 });
 Debug.Assert(iRes == 0, WRONG);
 
+////////////////////////////////////////////////////////////////////////////////////////////
+/// 55. Jump Game
+
+var b = JumpGameClass.CanJump(new int[] { 2, 3, 1, 1, 4 });
+Debug.Assert(b, WRONG);
+
+b = JumpGameClass.CanJump(new int[] { 3, 2, 1, 0, 4 });
+Debug.Assert(!b, WRONG);
+
+////////////////////////////////////////////////////////////////////////////////////////////
+/// 45. Jump Game II
+
+iRes = JumpGameClass.CanJumpII(new int[] { 2, 3, 0, 1, 1, 3, 0, 1, 4 });
+Debug.Assert(iRes == 4, WRONG);
+
+iRes = JumpGameClass.CanJumpII(new int[] { 2, 3, 0, 1, 1, 2, 0, 1, 4 });
+Debug.Assert(iRes == 5, WRONG);
+
+iRes = JumpGameClass.CanJumpII(new int[] { 2, 3, 1, 1, 4 });
+Debug.Assert(iRes == 2, WRONG);
+
+iRes = JumpGameClass.CanJumpII(new int[] { 2, 3, 0, 1, 4 });
+Debug.Assert(iRes == 2, WRONG);
+
+
+b = JumpGameClass.IsAnagram("anagram", "nagaram");
+Debug.Assert(b, WRONG);
+
+b = JumpGameClass.IsAnagram("anagram", "nagaras");
+Debug.Assert(!b, WRONG);
