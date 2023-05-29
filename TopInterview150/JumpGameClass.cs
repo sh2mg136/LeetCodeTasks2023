@@ -158,8 +158,6 @@ namespace TopInterview150
                 if (b.ContainsKey(t[i])) b[t[i]]++; else b.Add(t[i], 1);
             }
 
-            return Enumerable.SequenceEqual(a, b);
-
             foreach (var p in a)
             {
                 if (!b.ContainsKey(p.Key) || b[p.Key] != p.Value)

@@ -153,3 +153,38 @@ Debug.Assert(b, WRONG);
 
 b = JumpGameClass.IsAnagram("anagram", "nagaras");
 Debug.Assert(!b, WRONG);
+
+////////////////////////////////////////////////////////////////////////////////////////////
+/// 49. Group Anagrams
+
+var listOfLists = GroupAnagramsClass.GroupAnagrams(new string[] { "eat", "tea", "tan", "ate", "nat", "bat" });
+// Output: [["bat"],["nat","tan"],["ate","eat","tea"]]
+Debug.Assert(listOfLists.Count == 3, WRONG);
+
+
+listOfLists = GroupAnagramsClass.GroupAnagrams(new string[] { "bdddddddddd", "bbbbbbbbbbc" });
+// Expected: [["bbbbbbbbbbc"],["bdddddddddd"]]
+Debug.Assert(listOfLists.Count == 2, WRONG);
+Debug.Assert(listOfLists[0].Contains("bbbbbbbbbbc") || listOfLists[0].Contains("bdddddddddd"), WRONG);
+Debug.Assert(listOfLists[1].Contains("bbbbbbbbbbc") || listOfLists[1].Contains("bdddddddddd"), WRONG);
+
+
+listOfLists = GroupAnagramsClass.GroupAnagrams(new string[] { "" });
+Debug.Assert(listOfLists.Count == 1, WRONG);
+Debug.Assert(listOfLists[0][0] == "", WRONG);
+
+
+listOfLists = GroupAnagramsClass.GroupAnagrams(new string[] { "a" });
+Debug.Assert(listOfLists.Count == 1, WRONG);
+Debug.Assert(listOfLists[0][0] == "a", WRONG);
+
+////////////////////////////////////////////////////////////////////////////////////////////
+/// 347. Top K Frequent Elements
+
+var iarr = TopKFrequentElements.TopKFrequent(new int[] { 1, 1, 1, 2, 2, 3 }, 2);
+Debug.Assert(iarr.Length == 2 && iarr[0] == 1 && iarr[1] == 2, WRONG);
+
+iarr = TopKFrequentElements.TopKFrequent(new int[] { 1 }, 1);
+Debug.Assert(iarr.Length == 1 && iarr[0] == 1, WRONG);
+
+
