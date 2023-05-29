@@ -187,4 +187,17 @@ Debug.Assert(iarr.Length == 2 && iarr[0] == 1 && iarr[1] == 2, WRONG);
 iarr = TopKFrequentElements.TopKFrequent(new int[] { 1 }, 1);
 Debug.Assert(iarr.Length == 1 && iarr[0] == 1, WRONG);
 
+////////////////////////////////////////////////////////////////////////////////////////////
+/// 238. Product of Array Except Self
 
+iarr = ProductOfArrayExceptSelf.ProductExceptSelf(new int[] { 2, 3, 4, 5 });
+var iarrc = new int[] { 60, 40, 30, 24 };
+Debug.Assert(Enumerable.SequenceEqual(iarr, iarrc), WRONG);
+
+iarr = ProductOfArrayExceptSelf.ProductExceptSelf(new int[] { 1, 2, 3, 4 });
+iarrc = new int[] { 24, 12, 8, 6 };
+Debug.Assert(Enumerable.SequenceEqual(iarr, iarrc), WRONG);
+
+iarr = ProductOfArrayExceptSelf.ProductExceptSelf(new int[] { -1, 1, 0, -3, 3 });
+iarrc = new int[] { 0, 0, 9, 0, 0 };
+Debug.Assert(Enumerable.SequenceEqual(iarr, iarrc), WRONG);
